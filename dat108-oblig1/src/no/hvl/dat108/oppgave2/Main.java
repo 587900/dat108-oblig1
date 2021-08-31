@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		final String[] kokker = { "Anne", "Erik", "Knut" };
 		final String[] servitorer = { "Mia", "Per" };
-		final int KAPASITET = 4;
+		final int KAPASITET = 5;
 
 		skrivUtHeader(kokker, servitorer, KAPASITET);
 
@@ -26,7 +26,8 @@ public class Main {
 		System.out.println("I denne simuleringen har vi"
 				+ "\n" + "      " + kokker.length + " kokker " + Arrays.toString(kokker)
 				+ "\n" + "      " + servitorer.length + " servitører " + Arrays.toString(servitorer)
-				+ "\n" + "      " + "Kapasiteten til brettet er " + 4 + " hamburgere");		
+				+ "\n" + "      " + "Kapasiteten til brettet er " + 4 + " hamburgere"
+				+ "\n\n" + "Vi starter...\n");		
 	}
 
 }

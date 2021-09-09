@@ -10,7 +10,7 @@ import java.util.Arrays;
  * 
  * 2:
  * Vi registrerer at en kokk kan rekke å legge på burger på brettet, før utskriften kommer. Derfor
- * vil eksempelvis burger A printes ut på en servitør-print, men også på påfølgende kokk-print.
+ * kan eksempelvis burger A printes ut på en servitør-print, men også på påfølgende kokk-print.
  * For å unngå dette måtte man ha brukt synchronized, men dette tolket vi at vi skulle unngå
  * i oppgave 3
  */

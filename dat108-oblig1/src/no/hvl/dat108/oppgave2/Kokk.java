@@ -15,20 +15,20 @@ public class Kokk extends Thread {
 		while (true) {
 			try {
 				Thread.sleep((long) (Math.floor((Math.random() * 5) + 2) * 1000));
-			} catch (InterruptedException e1) {
-			}
-			synchronized (brett) {
-				while (brett.erFull()) {
-					try {
+				
+				synchronized (brett) {
+					while (brett.erFull()) {
 						System.out.println(navn + " (kokk) klar med hamburger, men brett fullt. Venter!");
 						brett.wait();
-					} catch (InterruptedException e) {
 					}
+					int lagtTil = brett.leggTil();
+					System.out.println(navn + " (kokk) legger på hamburger ◖ " + lagtTil + " ◗. Brett: " + brett.toString());
+					brett.notifyAll();
 				}
-				int lagtTil = brett.leggTil();
-				System.out
-						.println(navn + " (kokk) legger på hamburger ◖ " + lagtTil + " ◗. Brett: " + brett.toString());
-				brett.notifyAll();
+				
+			} catch (InterruptedException e1) {
+				System.out.println(navn + " INTERRUPTED");
+				break;
 			}
 		}
 	}

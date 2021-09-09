@@ -18,6 +18,8 @@ public class Kokk extends Thread {
 				int lagtTil = brett.leggTil();
 				System.out.println(navn + " (kokk) legger på hamburger ◖ " + lagtTil + " ◗. Brett: " + brett.toString());;
 			} catch (InterruptedException e1) {
+				System.out.println(navn + " INTERRUPTED");
+				break;
 			}
 		}
 	}

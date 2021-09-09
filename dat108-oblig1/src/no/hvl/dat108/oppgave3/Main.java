@@ -37,9 +37,9 @@ public class Main {
 
 	private static void skrivUtHeader(String[] kokker, String[] servitorer, int kAPASITET) {
 		System.out.println("I denne simuleringen har vi"
-				+ "\n" + "      " + kokker.length + " kokker " + Arrays.toString(kokker)
-				+ "\n" + "      " + servitorer.length + " servitører " + Arrays.toString(servitorer)
-				+ "\n" + "      " + "Kapasiteten til brettet er " + 4 + " hamburgere"
+				+ "\n\t" + kokker.length + " kokker " + Arrays.toString(kokker)
+				+ "\n\t" + servitorer.length + " servitører " + Arrays.toString(servitorer)
+				+ "\n\t" + "Kapasiteten til brettet er " + 4 + " hamburgere"
 				+ "\n\n" + "Vi starter...\n");		
 	}
 

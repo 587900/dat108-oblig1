@@ -19,6 +19,8 @@ public class Servitor extends Thread {
 				System.out.println(
 						navn + " (servitør) tar av hamburger ◖ " + tattVekk + " ◗. Brett: " + brett.toString());
 			} catch (InterruptedException e1) {
+				System.out.println(navn + " INTERRUPTED");
+				break;
 			}
 		}
 	}

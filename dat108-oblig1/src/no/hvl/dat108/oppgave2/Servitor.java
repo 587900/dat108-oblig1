@@ -15,20 +15,20 @@ public class Servitor extends Thread {
 		while (true) {
 			try {
 				Thread.sleep((long) (Math.floor((Math.random() * 5) + 2) * 1000));
-			} catch (InterruptedException e1) {
-			}
-			synchronized (brett) {
-				while (brett.erTom()) {
-					try {
+				
+				synchronized (brett) {
+					while (brett.erTom()) {
 						System.out.println(navn + " (servitør) ønsker å ta hamburger, men brett tomt. Venter!");
 						brett.wait();
-					} catch (InterruptedException e) {
 					}
+					int tattVekk = brett.taAv();
+					System.out.println(navn + " (servitør) tar av hamburger ◖ " + tattVekk + " ◗. Brett: " + brett.toString());
+					brett.notifyAll();
 				}
-				int tattVekk = brett.taAv();
-				System.out.println(
-						navn + " (servitør) tar av hamburger ◖ " + tattVekk + " ◗. Brett: " + brett.toString());
-				brett.notifyAll();
+				
+			} catch (InterruptedException e1) {
+				System.out.println(navn + " INTERRUPTED");
+				break;
 			}
 		}
 	}

@@ -16,8 +16,7 @@ public class Servitor extends Thread {
 			try {
 				Thread.sleep((long) (Math.floor((Math.random() * 5) + 2) * 1000));
 				int tattVekk = brett.taAv();
-				System.out.println(
-						navn + " (servitør) tar av hamburger ◖ " + tattVekk + " ◗. Brett: " + brett.toString());
+				System.out.println(navn + " (servitør) tar av hamburger ◖ " + tattVekk + " ◗. Brett: " + brett.toString());
 			} catch (InterruptedException e1) {
 				System.out.println(navn + " INTERRUPTED");
 				break;

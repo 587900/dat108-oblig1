@@ -2,13 +2,11 @@ package no.hvl.dat108.oppgave2;
 
 public class HamburgerBrett {
 
-	private int kapasitet;
 	private int[] hamburgerBrett;
-	private int antall;
+	private int antall = 0;
 	private int teller = 0;
 	
 	public HamburgerBrett(int kapasitet) {
-		this.kapasitet = kapasitet;
 		hamburgerBrett = new int[kapasitet];
 	}
 	
@@ -21,13 +19,8 @@ public class HamburgerBrett {
 		if(erFull()) {
 			throw new IndexOutOfBoundsException("Burgerbrettet er fullt!");
 		}
-		for(int i = 0; i<hamburgerBrett.length; i++) {
-			if(hamburgerBrett[i] == 0) {
-				teller++;
-				hamburgerBrett[i] = teller;
-				break;
-			}
-		}
+		
+		hamburgerBrett[antall++] = ++teller;
 		return teller;
 	}
 	
@@ -41,31 +34,27 @@ public class HamburgerBrett {
 			throw new IndexOutOfBoundsException("Burgerbrettet er tomt!");
 		}
 		int tattVekk = hamburgerBrett[0];
-		for(int i = 1; i < hamburgerBrett.length ;i++) {
+		for(int i = 1, len = Math.min(antall+1, hamburgerBrett.length); i < len; i++) {
 			hamburgerBrett[i-1] = hamburgerBrett[i];
 		}
 		hamburgerBrett[hamburgerBrett.length-1] = 0;
+		antall--;
 		return tattVekk;
 	}
 	
 	public boolean erFull() {
-		return hamburgerBrett[hamburgerBrett.length - 1] != 0;
+		return hamburgerBrett.length == antall;
 	}
 	
 	public boolean erTom() {
-		return hamburgerBrett[0] == 0;
+		return antall == 0;
 	}
 	
 	@Override
 	public String toString() {
 		String burgere = "";
-		for (int i = 0; i < hamburgerBrett.length; i++) {
-			if(hamburgerBrett[i] == 0) {
-				break;
-			}
-			if(i != 0) {
-				burgere += ", ";
-			}
+		for (int i = 0; i < antall; i++) {
+			if(i != 0) burgere += ", ";
 			burgere += "◖ " + hamburgerBrett[i] + " ◗";
 		}
 		return "[" + burgere + "]";
